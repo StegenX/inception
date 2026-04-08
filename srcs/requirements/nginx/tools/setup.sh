@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Generate self-signed SSL certificate if it doesn't exist
+if [ ! -f /etc/nginx/ssl/inception.crt ]; then
+    mkdir -p /etc/nginx/ssl
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /etc/nginx/ssl/inception.key \
+        -out /etc/nginx/ssl/inception.crt \
+        -subj "/C=MA/ST=Benguerir/L=Benguerir/O=42/OU=42/CN=${DOMAIN_NAME}"
+    echo "SSL certificate generated for ${DOMAIN_NAME}"
+fi
+
+# Start nginx in foreground (PID 1)
+exec nginx -g "daemon off;"

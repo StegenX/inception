@@ -1,0 +1,14 @@
+# Secrets
+secrets/
+
+# Environment
+srcs/.env
+
+# Data
+data/
+
+# OS
+.DS_Store
+*.swp
+*.swo
+*~
