@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by stegen.*
+*This project has been created as part of the 42 curriculum by aagharbi.*
 
 # Inception
 
@@ -32,7 +32,7 @@ Docker provides OS-level virtualization through containers — lightweight, port
 
 ```bash
 # Add domain to hosts file (one-time)
-echo "127.0.0.1 stegen.42.fr" | sudo tee -a /etc/hosts
+echo "127.0.0.1 aagharbi.42.fr" | sudo tee -a /etc/hosts
 
 # Build and start all services
 make
@@ -52,10 +52,10 @@ make fclean
 
 ### Access
 
-- **Website**: https://stegen.42.fr
-- **WordPress Admin**: https://stegen.42.fr/wp-admin
+- **Website**: https://aagharbi.42.fr
+- **WordPress Admin**: https://aagharbi.42.fr/wp-admin
   - Admin user: `superuser` (password in `secrets/credentials.txt`)
-  - Regular user: `stegen`
+  - Regular user: `aagharbi`
 
 ## Resources
 
