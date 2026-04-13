@@ -36,23 +36,23 @@ make re
 
 ## Accessing the Website
 
-1. Ensure `stegen.42.fr` resolves to your machine:
+1. Ensure `aagharbi.42.fr` resolves to your machine:
    ```bash
-   echo "127.0.0.1 stegen.42.fr" | sudo tee -a /etc/hosts
+   echo "127.0.0.1 aagharbi.42.fr" | sudo tee -a /etc/hosts
    ```
 
-2. Open your browser and go to: **https://stegen.42.fr**
+2. Open your browser and go to: **https://aagharbi.42.fr**
    - Accept the self-signed certificate warning
 
-3. WordPress Admin Panel: **https://stegen.42.fr/wp-admin**
+3. WordPress Admin Panel: **https://aagharbi.42.fr/wp-admin**
 
 ## Credentials
 
 | Account | Username | Password Location |
 |---|---|---|
 | WordPress Admin | `superuser` | `secrets/credentials.txt` |
-| WordPress User | `stegen` | Same as DB password in `secrets/db_password.txt` |
-| MariaDB User | `stegen` | `secrets/db_password.txt` |
+| WordPress User | `aagharbi` | Same as DB password in `secrets/db_password.txt` |
+| MariaDB User | `aagharbi` | `secrets/db_password.txt` |
 | MariaDB Root | `root` | `secrets/db_root_password.txt` |
 
 > **Note**: Never commit the `secrets/` directory to Git. It is excluded via `.gitignore`.
@@ -72,8 +72,8 @@ docker logs wordpress
 docker logs mariadb
 
 # Test NGINX TLS
-curl -k https://stegen.42.fr
+curl -k https://aagharbi.42.fr
 
 # Test MariaDB connection
-docker exec mariadb mariadb -u stegen -p<password> wordpress -e "SHOW TABLES;"
+docker exec mariadb mariadb -u aagharbi -p<password> wordpress -e "SHOW TABLES;"
 ```
