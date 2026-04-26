@@ -1,8 +1,8 @@
 # Secrets
-secrets/
+# secrets/
 
-# Environment
-srcs/.env
+# # Environment
+# srcs/.env
 
 # Data
 data/
@@ -12,3 +12,7 @@ data/
 *.swp
 *.swo
 *~
+
+#file
+FIXES_APPLIED.md
+SECRETS_FIX.md
