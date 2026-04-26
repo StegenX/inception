@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Substitute environment variables in nginx config
+envsubst '${DOMAIN_NAME}' < /etc/nginx/conf.d/inception.conf > /etc/nginx/conf.d/inception.conf.tmp
+mv /etc/nginx/conf.d/inception.conf.tmp /etc/nginx/conf.d/inception.conf
+
 # Generate self-signed SSL certificate if it doesn't exist
 if [ ! -f /etc/nginx/ssl/inception.crt ]; then
     mkdir -p /etc/nginx/ssl

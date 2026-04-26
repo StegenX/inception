@@ -16,18 +16,24 @@ fi
 
 # Always check if our database and user exist, create if not
 # Start temporary MariaDB instance for setup
-mariadbd --user=mysql &
+mysqld_safe --user=mysql &
 pid=$!
 
 # Wait for MariaDB to be ready
 echo "Waiting for MariaDB to start..."
-until mariadbd-safe --help > /dev/null 2>&1 && mariadb -u root -e "SELECT 1" > /dev/null 2>&1; do
+max_attempts=30
+attempt=0
+until mariadb -u root -e "SELECT 1" > /dev/null 2>&1; do
+    if [ $attempt -ge $max_attempts ]; then
+        echo "MariaDB startup timeout!"
+        kill $pid
+        exit 1
+    fi
+    echo "  MariaDB not ready yet, retrying in 1s..."
     sleep 1
+    ((attempt++))
 done
-# Extra wait for socket to be fully ready
-sleep 2
-
-echo "Configuring MariaDB..."
+echo "MariaDB is ready!"
 mariadb -u root << EOF
 -- Set root password
 ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';
@@ -54,9 +60,9 @@ EOF
 fi
 
 # Stop the temporary instance gracefully
-mariadb-admin -u root -p"${MYSQL_ROOT_PASSWORD}" shutdown 2>/dev/null || \
-    mariadb-admin -u root shutdown 2>/dev/null
-wait $pid
+mysqladmin -u root -p"${MYSQL_ROOT_PASSWORD}" shutdown 2>/dev/null || \
+    mysqladmin -u root shutdown 2>/dev/null
+wait $pid 2>/dev/null
 
 # Start MariaDB in foreground (PID 1)
-exec mariadbd --user=mysql
+exec mysqld_safe --user=mysql --skip-syslog

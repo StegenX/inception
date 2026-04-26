@@ -3,6 +3,7 @@ FROM debian:bookworm
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nginx \
     openssl \
+    gettext-base \
     && rm -rf /var/lib/apt/lists/*
 
 COPY conf/nginx.conf /etc/nginx/conf.d/inception.conf

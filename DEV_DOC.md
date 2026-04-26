@@ -43,7 +43,7 @@ echo "127.0.0.1 aagharbi.42.fr" | sudo tee -a /etc/hosts
 make
 
 # This runs:
-# 1. Creates /home/aagharbi/data/wordpress and /home/aagharbi/data/mariadb
+# 1. Creates /home/stegen/data/wordpress and /home/stegen/data/mariadb
 # 2. docker compose -f srcs/docker-compose.yml up -d --build
 ```
 
@@ -95,8 +95,8 @@ docker volume inspect srcs_db_data
 
 | Volume | Container Path | Host Path |
 |---|---|---|
-| `wp_files` | `/var/www/wordpress` | `/home/aagharbi/data/wordpress` |
-| `db_data` | `/var/lib/mysql` | `/home/aagharbi/data/mariadb` |
+| `wp_files` | `/var/www/wordpress` | `/home/stegen/data/wordpress` |
+| `db_data` | `/var/lib/mysql` | `/home/stegen/data/mariadb` |
 
 Both volumes use the `local` driver with `bind` option to map named Docker volumes to specific host directories. Data persists across container restarts and rebuilds. Only `make clean` or `make fclean` deletes the data.
 
