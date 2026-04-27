@@ -52,6 +52,85 @@ services:
       - db_password
       - db_root_password
 
+  adminer:
+    build:
+      context: ./requirements/bonus/adminer
+      dockerfile: Dockerfile
+    container_name: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+    restart: on-failure
+    env_file:
+      - .env
+
+  redis:
+    build:
+      context: ./requirements/bonus/redis
+      dockerfile: Dockerfile
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - inception
+    restart: on-failure
+    command: redis-server --appendonly yes --logfile /var/log/redis/redis.log
+
+  ftp:
+    build:
+      context: ./requirements/bonus/ftp
+      dockerfile: Dockerfile
+    container_name: ftp
+    ports:
+      - "20:20"
+      - "21:21"
+      - "21100-21200:21100-21200"
+    volumes:
+      - wp_files:/var/www/wordpress
+    networks:
+      - inception
+    depends_on:
+      - wordpress
+    restart: on-failure
+    env_file:
+      - .env
+    secrets:
+      - ftp_password
+    environment:
+      FTP_HOST: aagharbi.42.fr
+
+  website:
+    build:
+      context: ./requirements/bonus/website
+      dockerfile: Dockerfile
+    container_name: website
+    ports:
+      - "8000:80"
+    networks:
+      - inception
+    restart: on-failure
+
+  portainer:
+    build:
+      context: ./requirements/bonus/portainer
+      dockerfile: Dockerfile
+    container_name: portainer
+    ports:
+      - "9000:9000"
+      - "9443:9443"
+      - "8001:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - inception
+    restart: on-failure
+    secrets:
+      - portainer_password
+
 volumes:
   wp_files:
     driver: local
@@ -65,6 +144,12 @@ volumes:
       type: none
       o: bind
       device: /home/stegen/data/mariadb
+  portainer_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/stegen/data/portainer
 
 networks:
   inception:
@@ -77,3 +162,7 @@ secrets:
     file: ../secrets/db_password.txt
   db_root_password:
     file: ../secrets/db_root_password.txt
+  ftp_password:
+    file: ../secrets/ftp_password.txt
+  portainer_password:
+    file: ../secrets/portainer_password.txt

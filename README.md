@@ -56,6 +56,11 @@ make fclean
 - **WordPress Admin**: https://aagharbi.42.fr/wp-admin
   - Admin user: `superuser` (password in `secrets/credentials.txt`)
   - Regular user: `aagharbi`
+- **Adminer (Bonus)**: http://aagharbi.42.fr:8080 - Database administration GUI
+- **Portainer (Bonus)**: https://aagharbi.42.fr:9443 - Container management interface
+- **Redis (Bonus)**: Port 6379 - Caching layer for WordPress
+- **FTP (Bonus)**: Port 21/21100-21200 - File transfer (credentials in secrets)
+- **Portfolio Website (Bonus)**: http://aagharbi.42.fr:8000 - Static HTML showcase
 
 ## Resources
 

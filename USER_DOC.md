@@ -4,11 +4,16 @@
 
 This stack provides the following services:
 
-| Service | Description | Container |
-|---|---|---|
-| **NGINX** | Reverse proxy with TLS (HTTPS only, port 443) | `nginx` |
-| **WordPress** | CMS with PHP-FPM 8.2 | `wordpress` |
-| **MariaDB** | Relational database for WordPress data | `mariadb` |
+| Service | Description | Container | Access |
+|---|---|---|---|
+| **NGINX** | Reverse proxy with TLS (HTTPS only, port 443) | `nginx` | https://aagharbi.42.fr |
+| **WordPress** | CMS with PHP-FPM 8.2 | `wordpress` | https://aagharbi.42.fr/wp-admin |
+| **MariaDB** | Relational database for WordPress data | `mariadb` | Internal network only |
+| **Adminer** *(Bonus)* | Web-based database administration tool | `adminer` | http://aagharbi.42.fr:8080 |
+| **Portainer** *(Bonus)* | Container and infrastructure management GUI | `portainer` | https://aagharbi.42.fr:9443 |
+| **Redis** *(Bonus)* | In-memory caching layer for performance | `redis` | Port 6379 (internal) |
+| **FTP** *(Bonus)* | File transfer server for WordPress files | `ftp` | Port 21, 21100-21200 |
+| **Website** *(Bonus)* | Static portfolio website (HTML/CSS) | `website` | http://aagharbi.42.fr:8000 |
 
 All traffic enters through NGINX on port 443 using TLSv1.2 or TLSv1.3.
 
@@ -44,7 +49,28 @@ make re
 2. Open your browser and go to: **https://aagharbi.42.fr**
    - Accept the self-signed certificate warning
 
-3. WordPress Admin Panel: **https://aagharbi.42.fr/wp-admin**
+3. **WordPress Admin Panel**: https://aagharbi.42.fr/wp-admin
+   - Username: `superuser`
+   - Password: Check `secrets/credentials.txt`
+
+4. **Adminer (Bonus)**: http://aagharbi.42.fr:8080
+   - Database management GUI
+   - Server: `mariadb`
+   - Username: `aagharbi`
+   - Password: Check `secrets/db_password.txt`
+
+5. **Portainer (Bonus)**: https://aagharbi.42.fr:9443
+   - Container and infrastructure management
+   - Password: Check `secrets/portainer_password.txt`
+   - Manage all Docker containers, images, volumes, networks
+
+6. **FTP Server (Bonus)**: ftp://aagharbi.42.fr:21
+   - Username: `ftpuser` (from .env)
+   - Password: Check `secrets/ftp_password.txt`
+   - Upload/download WordPress files
+
+7. **Portfolio Website (Bonus)**: http://aagharbi.42.fr:8000
+   - Static HTML portfolio showcasing the project
 
 ## Credentials
 

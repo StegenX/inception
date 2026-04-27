@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - aagharbi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            padding: 50px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .section {
+            margin: 30px 0;
+        }
+        
+        .section h2 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .skill-tag {
+            background: #f0f0f0;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border-left: 3px solid #667eea;
+        }
+        
+        .project {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #764ba2;
+            border-radius: 5px;
+        }
+        
+        .project h3 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>aagharbi</h1>
+        <p class="subtitle">System Administrator | Docker & DevOps Enthusiast</p>
+        
+        <div class="section">
+            <h2>About</h2>
+            <p>Passionate system administrator with hands-on experience in containerization, orchestration, and infrastructure automation. Proficient in Docker, Docker Compose, and modern DevOps practices.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Core Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Docker Compose</span>
+                <span class="skill-tag">Linux/Bash</span>
+                <span class="skill-tag">NGINX</span>
+                <span class="skill-tag">MariaDB</span>
+                <span class="skill-tag">PHP-FPM</span>
+                <span class="skill-tag">TLS/SSL</span>
+                <span class="skill-tag">System Administration</span>
+                <span class="skill-tag">Networking</span>
+                <span class="skill-tag">Security</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>🐳 Inception - Docker Infrastructure</h3>
+                <p><span class="badge">Docker</span><span class="badge">Docker Compose</span><span class="badge">NGINX</span><span class="badge">WordPress</span><span class="badge">MariaDB</span></p>
+                <p style="margin-top: 10px;">Complete containerized WordPress infrastructure with NGINX reverse proxy, PHP-FPM, and MariaDB. Implements TLS encryption, named volumes for persistence, and proper secret management.</p>
+            </div>
+            
+            <div class="project">
+                <h3>🎛️ Multi-Service Stack with Bonus Services</h3>
+                <p><span class="badge">Redis</span><span class="badge">FTP</span><span class="badge">Adminer</span><span class="badge">Static Website</span></p>
+                <p style="margin-top: 10px;">Enhanced stack with Redis caching, FTP server for file management, Adminer for database administration, and this portfolio website.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Technologies</h2>
+            <p><strong>Containerization:</strong> Docker, Docker Compose, Alpine/Debian</p>
+            <p style="margin-top: 10px;"><strong>Web Servers:</strong> NGINX, Apache2</p>
+            <p style="margin-top: 10px;"><strong>Databases:</strong> MariaDB, MySQL</p>
+            <p style="margin-top: 10px;"><strong>Caching:</strong> Redis</p>
+            <p style="margin-top: 10px;"><strong>Services:</strong> FTP, SFTP, PHP-FPM, WordPress</p>
+        </div>
+        
+        <div class="contact">
+            <h3>Get in Touch</h3>
+            <p style="margin-top: 10px;">
+                <a href="mailto:aagharbi@42.fr">Email</a> |
+                <a href="#">GitHub</a> |
+                <a href="#">LinkedIn</a>
+            </p>
+        </div>
+        
+        <footer>
+            <p>Portfolio Website - Bonus Service in Inception Project | Built with HTML & CSS</p>
+            <p>This is a static website served via NGINX container</p>
+        </footer>
+    </div>
+</body>
+</html>

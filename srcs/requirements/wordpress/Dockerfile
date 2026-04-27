@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     php8.2-zip \
     php8.2-gd \
     php8.2-intl \
+    php8.2-redis \
     curl \
     mariadb-client \
     ca-certificates \

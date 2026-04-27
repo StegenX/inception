@@ -72,6 +72,18 @@ make logs
 docker exec -it nginx bash
 docker exec -it wordpress bash
 docker exec -it mariadb bash
+docker exec -it adminer sh
+docker exec -it redis sh
+docker exec -it ftp sh
+docker exec -it website sh
+docker exec -it portainer sh
+
+# Access bonus services
+# Adminer: http://aagharbi.42.fr:8080
+# Portainer: https://aagharbi.42.fr:9443
+# FTP: ftp://aagharbi.42.fr:21
+# Website: http://aagharbi.42.fr:8000
+# Redis: redis-cli -h localhost
 ```
 
 ## Container Management Commands

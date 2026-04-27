@@ -43,6 +43,15 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
         --user_pass="${MYSQL_PASSWORD}" \
         --path=/var/www/wordpress
 
+    # Configure Redis Cache
+    wp config set WP_CACHE true --raw --allow-root --path=/var/www/wordpress
+    wp config set WP_REDIS_HOST redis --allow-root --path=/var/www/wordpress
+    wp config set WP_REDIS_PORT 6379 --raw --allow-root --path=/var/www/wordpress
+    
+    # Install and activate Redis Object Cache plugin
+    wp plugin install redis-cache --activate --allow-root --path=/var/www/wordpress
+    wp redis enable --allow-root --path=/var/www/wordpress
+
     echo "WordPress setup complete!"
 fi
 
