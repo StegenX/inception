@@ -6,8 +6,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/log/vsftpd && \
-    mkdir -p /var/run/vsftpd && \
-    mkdir -p /home/ftp/wordpress
+    mkdir -p /var/run/vsftpd/empty && \
+    mkdir -p /home/ftp/wordpress && \
+    chmod 555 /var/run/vsftpd/empty && \
+    echo "/bin/false" >> /etc/shells
 
 COPY tools/vsftpd.conf /etc/vsftpd.conf
 COPY tools/start.sh /usr/local/bin/start.sh

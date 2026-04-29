@@ -77,7 +77,7 @@ services:
     networks:
       - inception
     restart: on-failure
-    command: redis-server --appendonly yes --logfile /var/log/redis/redis.log
+    command: redis-server --protected-mode no --bind 0.0.0.0 --appendonly yes --logfile /var/log/redis/redis.log
 
   ftp:
     build:

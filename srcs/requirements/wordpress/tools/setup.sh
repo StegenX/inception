@@ -50,13 +50,19 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
     
     # Install and activate Redis Object Cache plugin
     wp plugin install redis-cache --activate --allow-root --path=/var/www/wordpress
-    wp redis enable --allow-root --path=/var/www/wordpress
 
     echo "WordPress setup complete!"
 fi
 
-# Fix permissions
+# Install Redis drop-in if plugin exists but drop-in isn't installed
+if [ -f /var/www/wordpress/wp-content/plugins/redis-cache/includes/object-cache.php ] && [ ! -f /var/www/wordpress/wp-content/object-cache.php ]; then
+    cp /var/www/wordpress/wp-content/plugins/redis-cache/includes/object-cache.php /var/www/wordpress/wp-content/object-cache.php
+    echo "Redis object-cache drop-in installed!"
+fi
+
+# Final permission fix
 chown -R www-data:www-data /var/www/wordpress
+chmod 644 /var/www/wordpress/wp-content/object-cache.php 2>/dev/null || true
 
 # Start PHP-FPM in foreground (PID 1)
 exec php-fpm8.2 -F
