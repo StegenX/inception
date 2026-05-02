@@ -32,7 +32,7 @@ Docker provides OS-level virtualization through containers — lightweight, port
 
 ```bash
 # Add domain to hosts file (one-time)
-echo "127.0.0.1 aagharbi.42.fr" | sudo tee -a /etc/hosts
+echo "127.0.0.1 aagharbi.1337.ma" | sudo tee -a /etc/hosts
 
 # Build and start all services
 make
@@ -52,15 +52,15 @@ make fclean
 
 ### Access
 
-- **Website**: https://aagharbi.42.fr
-- **WordPress Admin**: https://aagharbi.42.fr/wp-admin
+- **Website**: https://aagharbi.1337.ma
+- **WordPress Admin**: https://aagharbi.1337.ma/wp-admin
   - Admin user: `superuser` (password in `secrets/credentials.txt`)
   - Regular user: `aagharbi`
-- **Adminer (Bonus)**: http://aagharbi.42.fr:8080 - Database administration GUI
-- **Portainer (Bonus)**: https://aagharbi.42.fr:9443 - Container management interface
+- **Adminer (Bonus)**: http://aagharbi.1337.ma:8080 - Database administration GUI
+- **Portainer (Bonus)**: https://aagharbi.1337.ma:9443 - Container management interface
 - **Redis (Bonus)**: Port 6379 - Caching layer for WordPress
 - **FTP (Bonus)**: Port 21/21100-21200 - File transfer (credentials in secrets)
-- **Portfolio Website (Bonus)**: http://aagharbi.42.fr:8000 - Static HTML showcase
+- **Portfolio Website (Bonus)**: http://aagharbi.1337.ma:8000 - Static HTML showcase
 
 ## Resources
 

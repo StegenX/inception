@@ -77,7 +77,6 @@ services:
     networks:
       - inception
     restart: on-failure
-    command: redis-server --protected-mode no --bind 0.0.0.0 --appendonly yes --logfile /var/log/redis/redis.log
 
   ftp:
     build:
@@ -99,8 +98,6 @@ services:
       - .env
     secrets:
       - ftp_password
-    environment:
-      FTP_HOST: aagharbi.42.fr
 
   website:
     build:
