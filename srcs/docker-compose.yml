@@ -134,19 +134,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/stegen/data/wordpress
+      device: /home/aagharbi/data/wordpress
   db_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/stegen/data/mariadb
+      device: /home/aagharbi/data/mariadb
   portainer_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/stegen/data/portainer
+      device: /home/aagharbi/data/portainer
 
 networks:
   inception:
